@@ -1,0 +1,33 @@
+{
+  "name": "happyplace",
+  "version": "1.0.0",
+  "description": "## Hello and welcome to \"HappyPlace\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index",
+    "knex": "knex",
+    "test": "jest --watchAll --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roa-2021/HappyPlace.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roa-2021/HappyPlace/issues"
+  },
+  "homepage": "https://github.com/roa-2021/HappyPlace#readme",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.21.21",
+    "supertest": "^6.1.6"
+  },
+  "dependencies": {
+    "express-handlebars": "^5.3.3",
+    "nodemon": "^2.0.12",
+    "sqlite3": "^5.0.2"
+  }
+}
