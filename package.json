@@ -7,6 +7,7 @@
     "start": "node index",
     "dev": "nodemon index",
     "knex": "knex",
+    "build": "knex migrate:latest",
     "test": "jest --watchAll --coverage"
   },
   "repository": {
@@ -21,14 +22,14 @@
   },
   "homepage": "https://github.com/roa-2021/HappyPlace#readme",
   "devDependencies": {
-    "express": "^4.17.1",
-    "knex": "^0.21.21",
-    "supertest": "^6.1.6"
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.6",
+    "sqlite3": "^5.0.2"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
-    "nodemon": "^2.0.12",
-    "pg": "^8.7.1",
-    "sqlite3": "^5.0.2"
+    "knex": "^0.21.21",
+    "pg": "^8.7.1"
   }
 }
