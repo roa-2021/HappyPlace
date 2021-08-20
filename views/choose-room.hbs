@@ -5,10 +5,10 @@
 
     <!-- "rooms" will be an object of the rooms and all of their their details -->
     {{!-- can come back into here and change names of things to make them work no stress --}}
-    {{#each rooms}}
+    {{#each areas}}
     <div class="room-listing">
-      <input type="radio" id="{{roomName}}" name="drone" value="{{roomName}}" checked>
-      <label for="{{roomName}}">{{roomName}}</label>
+      <input type="radio" id="{{name}}" name="drone" value="{{name}}" checked>
+      <label for="{{name}}">{{name}}</label>
     </div>
     {{/each}}
 
