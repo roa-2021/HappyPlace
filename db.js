@@ -9,38 +9,38 @@ let getGroups = (db = connection) => {
     .join('students', 'students.group_id', 'groups.id')
 }
 
+let getAreas = (db = connection) => {
+  return db('areas').select()
+}
 
 // getGroupMemebers
-let getGroupMembers = (groupID, db = connection) => {
-  return db('groups')
-    .select('*', 'groups.id as id')
-    .where('id', groupID)
-      .then((group) => {
+// let getGroupMembers = (groupID, db = connection) => {
+//   return db('groups')
+//     .select('*', 'groups.id as id')
+//     .where('id', groupID)
 
-        .join('students', 'id', 'students.group_id')
-      })
-
-    // get groups
-    // find right group
-    // join members
-    // return object with groupName and members maybe as array?
-}
+//     // get groups
+//     // find right group
+//     // join members
+//     // return object with groupName and members maybe as array?
+// }
 
 
-// getBookings
-let getBookings = (groupID, db = connection) => {
-  return db('bookings')
-  .select('*', 'bookings.id as id')
-  .join('bookings', 'bookings.id', 'groups_id')
-}
+// // getBookings
+// let getBookings = (groupID, db = connection) => {
+//   return db('bookings')
+//   .select('*', 'bookings.id as id')
+//   .join('bookings', 'bookings.id', 'groups_id')
+// }
 
-getGroupMembers(50005)
+// getGroupMembers(50005)
 
 
 
 module.exports = {
    getGroups,
-   getGroupMembers,
-   getBookings
+   getAreas
+  //  getGroupMembers,
+  //  getBookings
   }
 
