@@ -1,0 +1,29 @@
+{{> nav }}
+<main>
+  <form id="booking-summary" action="/makebooking" method="POST">
+    <!-- when calling this view you need to pass a joined object from db that includes: -->
+    <!-- booking location, group members -->
+    <!-- again I can come back and change some of these variable names to suite the database -->
+
+    <h2>Here is your booking:</h2>
+    <p class="summary-icon">😁</p>
+
+    <h4>Where?</h4>
+    <p>{{bookingLocation}}</p>
+
+    <h4>With who?</h4>
+    <div class="group">
+
+      {{#each members}}
+      <div class="member">
+        <!-- insert person photo and name -->
+        <img class="member-photo" src="https://avatars.githubusercontent.com/u/74956308?s=400&u=6238c5177d4396d6b902e8e8e860c7fb58e5c86e&v=4" alt="beautiful photo of Jordan">
+        <p>{{memberName}}</p>
+      </div>
+      {{/each}}
+
+    </div>
+    <div class="spacer-10vh"></div>
+  </form>
+</main>
+{{> footer }}
