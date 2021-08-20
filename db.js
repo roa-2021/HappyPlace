@@ -13,6 +13,17 @@ let getAreas = (db = connection) => {
   return db('areas').select()
 }
 
+
+let makeBooking = (area_ID, group_ID, db = connection) => {
+  const newBooking = {
+    area_id: area_ID,
+    group_id: group_ID
+  }
+  return db('bookings').insert(newBooking)
+}
+
+// getBookings
+
 // getGroupMemebers
 // let getGroupMembers = (groupID, db = connection) => {
 //   return db('groups')
@@ -26,12 +37,6 @@ let getAreas = (db = connection) => {
 // }
 
 
-// // getBookings
-// let getBookings = (groupID, db = connection) => {
-//   return db('bookings')
-//   .select('*', 'bookings.id as id')
-//   .join('bookings', 'bookings.id', 'groups_id')
-// }
 
 // getGroupMembers(50005)
 
@@ -39,7 +44,8 @@ let getAreas = (db = connection) => {
 
 module.exports = {
    getGroups,
-   getAreas
+   getAreas,
+   makeBooking
   //  getGroupMembers,
   //  getBookings
   }
