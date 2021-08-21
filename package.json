@@ -5,7 +5,7 @@
   "main": "index.js",
   "engines": {
     "node": "14.x"
-},
+  },
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
@@ -26,8 +26,8 @@
   "homepage": "https://github.com/roa-2021/HappyPlace#readme",
   "devDependencies": {
     "nodemon": "^2.0.12",
-    "supertest": "^6.1.6",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "supertest": "^6.1.6"
   },
   "dependencies": {
     "express": "^4.17.1",
