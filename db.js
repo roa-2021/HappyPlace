@@ -30,7 +30,7 @@ const makeBooking = (area_ID, group_ID, db = connection) => {
     .insert(newBooking)
 }
 
-const getMemebersGroupID = (memberName, db = connection) => {
+const getMemebersGroup = (memberName, db = connection) => {
   return db('students')
     .select('*')
     .where('students.name', 'like', `%${memberName}%`)
@@ -50,6 +50,6 @@ module.exports = {
    getArea,
    makeBooking,
    getGroupMembers,
-   getMemebersGroupID
+   getMemebersGroup
   }
 
