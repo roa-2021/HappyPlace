@@ -4,7 +4,7 @@ const db = require('./db')
 const router = express.Router()
 
 let usersName = ''
-let chosenRoom = ''
+let usersGroupID = ''
 
 const findMembersGroup = member => {
   db.getMemebersGroupID(member)
