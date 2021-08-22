@@ -19,6 +19,8 @@ router.post('/room-selection', (req, res) => {
 })
 
 router.post('/booking-summary', (req, res) => {
+  chosenRoom = req.body.room
+
   res.render('booking-summary')
 })
 
