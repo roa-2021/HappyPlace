@@ -48,8 +48,17 @@ router.post('/room-selection', (req, res) => {
 })
 
 router.post('/booking-summary', (req, res) => {
-  chosenRoom = req.body.room
+  const chosenRoom = req.body.room
 
+  db.getArea(chosenRoom)
+    .then(room => {
+      db.makeBooking(room.id, usersGroupID)
+        .then(bookingID => {
+          console.log(`Booking made under ID: ${bookingID}`)
+        })
+    })
+    .catch(err => res.status(500).send('Oh no! An error: ' + err.message))
+  
   res.render('booking-summary')
 })
 
