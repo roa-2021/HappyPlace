@@ -6,32 +6,39 @@ const router = express.Router()
 let usersName = ''
 let usersGroupID = ''
 
-const findMembersGroup = member => {
-  db.getMemebersGroupID(member)
-    .then(member => {
-      const groupID = member.group_id
-      console.log(groupID)
+const getMembersGroupSummary = membersName => {
+  let outputGroup = {}
+
+  db.getMemebersGroupInfo(membersName)
+    .then(groupMember => {
+      const groupID = groupMember.group_id
 
       db.getGroupMembers(groupID)
-        .then(groupRAW => {
-          const group = groupRAW.map(member => {
-            if (member.name.includes(member)) {
-              console.log("found!!")
-              const booker = {
-                ...member,
-                name: "You!"
+        .then(group => {
+          outputGroup = group.map(groupMember => {
+            if (groupMember.name.includes(membersName)) {
+              const apptBooker = {
+                ...groupMember,
+                name: `You: ${groupMember.name}`
               }
+              return apptBooker
             }
-            return member
+            return groupMember
           })
-          return group
+          // at this point if you console log outputGroup - it is the group that we need for the summary but with the requester of the booking having their name as "you!" for good user experience rather than just having their name. For some reason, I cant have that outputGroup passed down and out of the map function :(
+          console.log(outputGroup)
+          return null
         })
-      return 
+      // console.log(outputGroup)
+      return
     })
     .catch(err => res.status(500).send('Oh no! An error: ' + err.message))
+  // console.log(outputGroup)
+  return outputGroup
 }
 
-console.log(findMembersGroup("Jordan"))
+console.log("func caller =", getMembersGroupSummary("Jordan"))
+
 
 router.get('/', (req, res) => {
    res.render('home')
@@ -39,7 +46,7 @@ router.get('/', (req, res) => {
 
 router.post('/room-selection', (req, res) => {
   usersName = req.body.name
-  db.getMemebersGroup(usersName)
+  db.getMemebersGroupInfo(usersName)
     .then(usersGroup => {
       usersGroupID = usersGroup.group_id
     })
