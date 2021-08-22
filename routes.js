@@ -8,6 +8,16 @@ router.get('/', (req, res) => {
    res.render('home')
 })
 
+router.post('/room-selection', (req, res) => {
+  usersName = req.body.name
+
+  db.getAreas()
+    .then(areas => {
+      res.render('room-selection', { areas })
+    })
+    .catch(err => res.status(500).send('Oh no! An error: ' + err.message))
+})
+
 router.post('/booking-summary', (req, res) => {
   console.log("/booking-summary", req.body)
   res.render('booking-summary')
