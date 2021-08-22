@@ -13,7 +13,6 @@ const getAreas = (db = connection) => {
   return db('areas').select()
 }
 
-
 const makeBooking = (area_ID, group_ID, db = connection) => {
   const newBooking = {
     area_id: area_ID,
@@ -41,9 +40,7 @@ const getGroupMembers = (groupID, db = connection) => {
 module.exports = {
    getGroups,
    getAreas,
-   makeBooking
-  //  getGroupMembers,
-  //  getBookings
+   makeBooking,
    getGroupMembers,
    getMemebersGroupID
   }
