@@ -31,6 +31,12 @@ const getMemebersGroupID = (memberName, db = connection) => {
     .first()
 }
 
+const getGroupMembers = (groupID, db = connection) => {
+  return db('groups')
+    .select('*', 'students.id as students_ID')
+    .join('students', 'groups.id', 'students.group_id')
+    .where('groups.id', groupID)
+}
 
 module.exports = {
    getGroups,
@@ -38,6 +44,7 @@ module.exports = {
    makeBooking
   //  getGroupMembers,
   //  getBookings
+   getGroupMembers,
    getMemebersGroupID
   }
 
