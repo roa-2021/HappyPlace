@@ -1,18 +1,19 @@
 {{> nav }}
 <main>
-  <div class="intro">
-    <p class="icon">🙋‍♀️</p>
+  <div class='intro'>
+    <p class='icon'>🙋‍♀️</p>
     <h2>Welcome to Baggsies!!</h2>
     <h5>This is the tool for booking the location of your accountability groups at Dev Academy.</h5>
     <br>
     <p>You can take a look at the areas, groups and current bookings in the menu above or follow the form below to make a new booking!!</p>
   </div>
 
-  <form id="name-form" action="/choose-room" method="POST">
-    <label for="users-name">Create a booking:</label>
-    <input type="text" id="users-name" name="users-name" placeholder="What is your name?">
-    <input class="button" type="submit" value="Next">
+  <form action='/room-selection' id='name-form' method='POST'>
+    <label for='name'>Create a booking:</label>
+    <input type='text' id='name' name='name' placeholder='What is your name?' required>
+    <input type='submit' value='Next' class='button'>
   </form>
-  <div class="spacer-10vh"></div>
+
+  <div class='spacer-10vh'></div>
 </main>
 {{> footer }}
