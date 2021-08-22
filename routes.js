@@ -3,6 +3,35 @@ const db = require('./db')
 
 const router = express.Router()
 
+let usersName = ''
+let chosenRoom = ''
+
+const findMembersGroup = member => {
+  db.getMemebersGroupID(member)
+    .then(member => {
+      const groupID = member.group_id
+      console.log(groupID)
+
+      db.getGroupMembers(groupID)
+        .then(groupRAW => {
+          const group = groupRAW.map(member => {
+            if (member.name.includes(member)) {
+              console.log("found!!")
+              const booker = {
+                ...member,
+                name: "You!"
+              }
+            }
+            return member
+          })
+          return group
+        })
+      return 
+    })
+    .catch(err => res.status(500).send('Oh no! An error: ' + err.message))
+}
+
+console.log(findMembersGroup("Jordan"))
 
 router.get('/', (req, res) => {
    res.render('home')
