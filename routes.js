@@ -39,6 +39,10 @@ router.get('/', (req, res) => {
 
 router.post('/room-selection', (req, res) => {
   usersName = req.body.name
+  db.getMemebersGroup(usersName)
+    .then(usersGroup => {
+      usersGroupID = usersGroup.group_id
+    })
 
   db.getAreas()
     .then(areas => {
