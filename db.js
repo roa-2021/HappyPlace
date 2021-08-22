@@ -13,6 +13,13 @@ const getAreas = (db = connection) => {
   return db('areas').select()
 }
 
+const getArea = (areaName, db = connection) => {
+  return db('areas')
+    .select('*')
+    .where('areas.name', 'like', `%${areaName}%`)
+    .first()
+}
+
 const makeBooking = (area_ID, group_ID, db = connection) => {
   const newBooking = {
     area_id: area_ID,
@@ -40,6 +47,7 @@ const getGroupMembers = (groupID, db = connection) => {
 module.exports = {
    getGroups,
    getAreas,
+   getArea,
    makeBooking,
    getGroupMembers,
    getMemebersGroupID
